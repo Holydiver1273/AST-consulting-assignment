@@ -1,0 +1,7 @@
+<html>
+<body>
+    <h1>Average Salary for Python Developers in {{ user_city }}</h1>
+    <p>The average salary for Python developers in {{ user_city }} is: {{ average_salary }}</p>
+    <a href="{% url 'average_salary_in_city' user_city %}">Average Salary in {{ user_city }}</a>
+</body>
+</html>

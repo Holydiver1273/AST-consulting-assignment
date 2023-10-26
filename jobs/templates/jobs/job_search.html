@@ -1,0 +1,24 @@
+<html>
+<body>
+    <h1>Search Results</h1>
+    <form method="get">
+        <label for="city">City:</label>
+        <input type="text" name="city" value="{{ request.GET.city }}">
+        <input type="submit" value="Search">
+    </form>
+    <ul>
+        {% for job in python_dev_jobs %}
+            <li>
+                <strong>{{ job.company }}</strong><br>
+                {{ job.job_title }}<br>
+                Salary: {{ job.salary }}<br>
+                Job Description: {{ job.text_description }}<br>
+                <a href="{% url 'edit_job' job.id %}">Edit</a>
+                <a href="{% url 'delete_job' job.id %}">Delete</a>
+            </li>
+        {% empty %}
+            <li>No results found.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

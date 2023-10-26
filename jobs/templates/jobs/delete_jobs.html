@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Job</title>
+</head>
+<body>
+    <h1>Delete Job</h1>
+    <p>Are you sure you want to delete the following job listing?</p>
+    <p><strong>Company:</strong> {{ job.company }}</p>
+    <p><strong>Job Title:</strong> {{ job.job_title }}</p>
+    <p><strong>Salary:</strong> {{ job.salary }}</p>
+    <p><strong>Job Description:</strong> {{ job.text_description }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Delete">
+    </form>
+    <a href="{% url 'search_jobs' %}">Cancel</a>
+</body>
+</html>
